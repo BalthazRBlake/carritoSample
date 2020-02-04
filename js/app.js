@@ -68,7 +68,7 @@ function vaciarCarrito(){
   //listaCursos.innerHTML = '';
   //forma rapida (recomendada)
   while(listaCursos.firstChild){
-    listaCursos.remove(listaCursos.firstChild);
+    listaCursos.removeChild(listaCursos.firstChild);
   }
   return false;//fixes some jump
 }
