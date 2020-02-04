@@ -1,9 +1,9 @@
 const carrito = getElementById('carrito');
 const cursos = getElementById('lista-cursos');
 
-cargar eventListeners();
+cargarEventListeners();
 
-function eventListeners(){
+function cargarEventListeners(){
   cursos.addEventListener('click', comprarCusro);
 }
 
