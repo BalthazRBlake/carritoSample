@@ -4,7 +4,7 @@ const cursos = document.getElementById('lista-cursos');
 cargarEventListeners();
 
 function cargarEventListeners(){
-  cursos.addEventListener('click', comprarCusro);
+  cursos.addEventListener('click', comprarCurso);
 }
 
 function comprarCurso(e){
