@@ -33,11 +33,11 @@ function leerDatosCurso(curso){
 
 function insertarCarrito(infoCurso){
   console.log(infoCurso.titulo);
-  /*
+  
   const row = document.createElement('tr');
   row.innerHTML = `
     <td>
-      <img src="${infoCurso.imagen}" width="100">
+      <img src="${infoCurso.imagen}" width=100>
     </td>
     <td>${infoCurso.titulo}</td>
     <td>${infoCurso.precio}</td>
@@ -46,5 +46,5 @@ function insertarCarrito(infoCurso){
     </td>
   `;
   
-  listaCursos.appendChild(row);*/ 
+  listaCursos.appendChild(row);
 }
