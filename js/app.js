@@ -17,6 +17,6 @@ function comprarCurso(e){
   }
 }
 
-funtion leerDatosCurso(curso){
+function leerDatosCurso(curso){
   console.log(curso);
 }
