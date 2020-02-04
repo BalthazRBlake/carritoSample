@@ -1,5 +1,5 @@
-const carrito = getElementById('carrito');
-const cursos = getElementById('lista-cursos');
+const carrito = document.getElementById('carrito');
+const cursos = document.getElementById('lista-cursos');
 
 cargarEventListeners();
 
