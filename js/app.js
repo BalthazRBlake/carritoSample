@@ -26,13 +26,15 @@ function leerDatosCurso(curso){
     precio: curso.querySelector('.precio span').textContent,
     id: curso.querySelector('a').getAttribute('data-id')
   }
-  
+  console.log(infoCurso);
   insertarCarrito(infoCurso);
 }
 
 function insertarCarrito(infoCurso){
+  console.log(infoCurso.titulo);
+  
   const row = document.createElement('tr');
-  row.innerHtml = `
+  row.innerHTML = `
     <td>
       <img src="${infoCurso.imagen}" width="100">
     </td>
@@ -43,5 +45,5 @@ function insertarCarrito(infoCurso){
     </td>
   `;
   
-  listaCursos.appendChild(row);
+  listaCursos.appendChild(row); 
 }
