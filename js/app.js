@@ -13,8 +13,9 @@ function comprarCurso(e){
   //console.log(e.target.classList);
   //Delegation para agregar carrito
   if(e.target.classList.contains('agregar-carrito')){
-     const curso = e.target.parentElement.parentElement;
-     leerDatosCurso(curso);
+    const curso = e.target.parentElement.parentElement;
+    console.log("Agregando curso: " + curso);
+    leerDatosCurso(curso);
   }
 }
 
@@ -32,7 +33,7 @@ function leerDatosCurso(curso){
 
 function insertarCarrito(infoCurso){
   console.log(infoCurso.titulo);
-  
+  /*
   const row = document.createElement('tr');
   row.innerHTML = `
     <td>
@@ -45,5 +46,5 @@ function insertarCarrito(infoCurso){
     </td>
   `;
   
-  listaCursos.appendChild(row); 
+  listaCursos.appendChild(row);*/ 
 }
