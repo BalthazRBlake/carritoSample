@@ -71,7 +71,7 @@ function eliminarCusro(e){
     console.log(cursoId);
   }
   
-  eliminarCursoLocalStorage(cusroId);
+  eliminarCursoLocalStorage(cursoId);
 }
 
 function vaciarCarrito(){
