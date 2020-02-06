@@ -133,12 +133,17 @@ function eliminarCursoLocalStorage(cursoId){
 
   cursos = obtenerCursosLocalStorage();
   
-  cursos.forEach((curso, index) =>{
+  /*cursos.forEach((curso, index) =>{
     if(curso.id === cursoId){
+      cursos.splice(index, 1);
+      //break; //forEach can't break in JS, loop won't execute
+    }
+  });*/
+  for(i=0; i<cursos.length; i++){
+    if(curso[i].id === cursoId){
       cursos.splice(index, 1);
       break;
     }
-  });
-  
+  }
   localStorage.setItem('cursos', JSON.stringify(cursos));
 }
