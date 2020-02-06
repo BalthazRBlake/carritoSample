@@ -140,7 +140,7 @@ function eliminarCursoLocalStorage(cursoId){
     }
   });*/
   for(i=0; i<cursos.length; i++){
-    if(curso[i].id === cursoId){
+    if(cursos[i].id === cursoId){
       cursos.splice(index, 1);
       break;
     }
