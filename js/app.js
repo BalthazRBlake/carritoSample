@@ -128,7 +128,7 @@ function cargarLocalStorage(){
   });
 }
 
-eliminarCursoLocalStorage(cursoId){
+function eliminarCursoLocalStorage(cursoId){
   let cursos;
 
   cursos = obtenerCursosLocalStorage();
