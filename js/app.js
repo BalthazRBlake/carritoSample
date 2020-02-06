@@ -11,6 +11,8 @@ function cargarEventListeners(){
   carrito.addEventListener('click', eliminarCusro);
   
   vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+
+  document.addEventListener('DOMContentLoaded', cargarLocalStorage);
 }
 
 function comprarCurso(e){
@@ -19,7 +21,7 @@ function comprarCurso(e){
   //Delegation para agregar carrito
   if(e.target.classList.contains('agregar-carrito')){
     const curso = e.target.parentElement.parentElement;
-    console.log("Agregando curso: " + curso);
+    //console.log("Agregando curso: " + curso);
     leerDatosCurso(curso);
   }
 }
@@ -32,12 +34,12 @@ function leerDatosCurso(curso){
     precio: curso.querySelector('.precio span').textContent,
     id: curso.querySelector('a').getAttribute('data-id')
   }
-  console.log(infoCurso);
+  //console.log(infoCurso);
   insertarCarrito(infoCurso);
 }
 
 function insertarCarrito(infoCurso){
-  console.log(infoCurso.titulo);
+  //console.log(infoCurso.titulo);
   
   const row = document.createElement('tr');
   row.innerHTML = `
@@ -52,11 +54,13 @@ function insertarCarrito(infoCurso){
   `;
   
   listaCursos.appendChild(row);
+
+  guardarCursoLocalStorage(infoCurso);
 }
 
 function eliminarCusro(e){
   e.preventDefault();
-  console.log('Eliminado');
+  //console.log('Eliminado');
   let curso;
   if(e.target.classList.contains('borrar-curso')){
     e.target.parentElement.parentElement.remove();
@@ -71,4 +75,48 @@ function vaciarCarrito(){
     listaCursos.removeChild(listaCursos.firstChild);
   }
   return false;//fixes some jump
+}
+
+function guardarCursoLocalStorage(infoCurso){
+  let cursos;
+
+  cursos = obtenerCursosLocalStorage();
+  cursos.push(infoCurso);
+  
+  localStorage.setItem('cursos', JSON.stringify(cursos));
+}
+
+function obtenerCursosLocalStorage(){
+  
+  let cusrsosLS;
+
+  if(localStorage.getItem('cursos') === null){
+    cusrsosLS = [];
+  } else {
+    cusrsosLS = JSON.parse(localStorage.getItem('cursos'));
+  }
+
+  return cusrsosLS;
+}
+
+function cargarLocalStorage(){
+  let cursos;
+
+  cursos = obtenerCursosLocalStorage();
+
+  cursos.forEach(curso => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>
+        <img src="${curso.imagen}" width=100>
+      </td>
+      <td>${curso.titulo}</td>
+      <td>${curso.precio}</td>
+      <td>
+        <a href="#" class="borrar-curso" data-id="${curso.id}">X</a>
+      </td>
+    `;
+    
+    listaCursos.appendChild(row);
+  });
 }
