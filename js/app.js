@@ -81,6 +81,8 @@ function vaciarCarrito(){
   while(listaCursos.firstChild){
     listaCursos.removeChild(listaCursos.firstChild);
   }
+  
+  vaciarCarritoLocalStorage();
   return false;//fixes some jump
 }
 
@@ -146,4 +148,8 @@ function eliminarCursoLocalStorage(cursoId){
     }
   }
   localStorage.setItem('cursos', JSON.stringify(cursos));
+}
+
+function vaciarCarritoLocalStorage(){
+  localStorage.clear();
 }
