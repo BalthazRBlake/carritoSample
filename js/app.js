@@ -141,7 +141,7 @@ function eliminarCursoLocalStorage(cursoId){
   });*/
   for(i=0; i<cursos.length; i++){
     if(cursos[i].id === cursoId){
-      cursos.splice(index, 1);
+      cursos.splice(i, 1);
       break;
     }
   }
